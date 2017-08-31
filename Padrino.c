@@ -25,6 +25,7 @@ int Notas[]={494,659,784,698,659,784,698,698,659,523,587,494};//B4,E5,G5,F5,E5,G
 
 //#define length 4
 //int Notas[]={1,5,2,10};
+
 // Inizializa el SysTick
 void SysTick_Init(void){
 NVIC_ST_CTRL_R = 0; // Desahabilita el SysTick durante la configuración
@@ -52,11 +53,10 @@ GPIO_PORTN_DIR_R |= 0x0F; // puerto N de salida
 GPIO_PORTN_DEN_R |= 0x0F; // habilita el puerto N
 GPIO_PORTN_DATA_R = 0x02; // enciende 1 led
 
-GPIO_PORTE_DIR_R |= 0x01;
+GPIO_PORTE_DIR_R |= 0x01;   //Está hecho para mandar la salida por el pin E0
 GPIO_PORTE_DEN_R |= 0x01;
 
-while(1){
+while(1)
     for(i=0;i<length;i++)
         Frecuenciador(Notas[i]);
-}
 }
